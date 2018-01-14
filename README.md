@@ -11,7 +11,7 @@ I wrote this with Django 2.0 and Django REST framework 3.7.3, but I think it can
 
 ## Requirements
 
-* Python
+* Python (2.7+)
 * Django
 * Django REST framework
 
