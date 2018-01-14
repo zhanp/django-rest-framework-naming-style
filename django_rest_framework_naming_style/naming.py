@@ -1,13 +1,15 @@
+from __future__ import unicode_literals
+
 import re
 
 
 def to_camel_case(value):
-    return re.compile('(_+[a-z])').sub(
+    return re.compile(r'(_+[a-z])').sub(
         lambda m: m.group().upper().lstrip('_'), value)
 
 
 def to_snake_case(value):
-    return re.compile('([A-Z])').sub(
+    return re.compile(r'([A-Z])').sub(
         lambda m: '_%s' % m.group().lower(), value)
 
 

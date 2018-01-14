@@ -1,10 +1,14 @@
-# noinspection PyPackageRequirements
-from pypandoc import convert_file
 from setuptools import setup, find_packages
 
 version = __import__('django_rest_framework_naming_style').__version__
 
-long_description = convert_file('README.md', 'rst')
+try:
+    from pypandoc import convert_file
+    long_description = convert_file('README.md', 'rst')
+
+except ImportError:
+    long_description = open('README.md', 'r', encoding='utf-8').read()
+    print('Warning: Could not convert Markdown to RST without pypandoc.')
 
 setup(
     name='django-rest-framework-naming-style',
@@ -18,7 +22,7 @@ setup(
     license='MIT',
     packages=find_packages(),
     include_package_data=True,
-    python_requires='>=3.5',
+    python_requires='>=2.7',
     install_requires=[],
     zip_safe=False,
     classifiers=[

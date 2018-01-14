@@ -5,24 +5,24 @@
 
 **This is a toolkit supporting camel case and snake case APIs' naming styles and easily switch.**
 
-I wrote this for Django 2.0 and Django REST framework 3.7.3, sorry about that I have no idea about the effects with other versions of Django or DRF.
+I wrote this with Django 2.0 and Django REST framework 3.7.3, but I think it can easily work with other versions of Django and DRF.
 
 
 
 ## Requirements
 
-* Python (3.5, 3.6)
-* Django (2.0)
-* Django REST framework (3.7.3)
+* Python
+* Django
+* Django REST framework
 
 
 
 ## Installation
 
-Install using `pip3`
+Install using `pip`
 
 ```python
-pip3 install django-rest-framework-naming-style
+pip install django-rest-framework-naming-style
 ```
 
 Replace renderer and parser classes for JSON in your `REST_FRAMEWORK` setting
@@ -67,9 +67,9 @@ REST_FRAMEWORK_NAMING_STYLE = {
 }
 ```
 
-`STYLE_KEY` that you set accept a value in request headers between `underscore` and `camelcase` to specify one naming style of APIs.
+`STYLE_KEY` that you set accept a value in request headers between `underscore` and `camelcase` to specify one naming style of APIs unless you set `style` in view object to specify it.
 
-If you set `STYLE_KEY` `None`, the style only depends on `STYLE_DEFAULT` as you like.
+If you set `STYLE_KEY` `None`, the style only depends on `style` in view object or `STYLE_DEFAULT` as you like.
 
 
 

@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from rest_framework.renderers import JSONRenderer
 
 from .naming import camel_case_foo

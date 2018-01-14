@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.http import QueryDict
 from rest_framework.parsers import JSONParser
 

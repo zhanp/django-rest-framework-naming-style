@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.conf import settings
 from rest_framework.settings import api_settings
 
@@ -14,7 +16,11 @@ ORDERING_PARAM = api_settings.ORDERING_PARAM
 
 
 def get_style(request):
-    style = request.META.get(HEADER_KEY)
+    try:
+        style = request.parser_context['view'].style
+    except (AttributeError, KeyError):
+        style = request.META.get(HEADER_KEY) if HEADER_KEY else None
+
     if style in ('underscore', 'camelcase'):
         return style
     return STYLE_DEFAULT

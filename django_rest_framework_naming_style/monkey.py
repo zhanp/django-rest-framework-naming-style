@@ -1,6 +1,8 @@
 """
 Make something in django rest framework patch.
 """
+from __future__ import unicode_literals
+
 from .parser import StylesQueryParamsParser
 
 
@@ -16,9 +18,7 @@ def patch_django_rest_framework_request():
     from django.utils.functional import cached_property
     from rest_framework.request import Request
 
-    parser = StylesQueryParamsParser()
-
     def query_params(self):
-        return parser.parse(self._request.GET, self)
+        return StylesQueryParamsParser.parse(self._request.GET, self)
 
     setattr(Request, 'query_params', cached_property(query_params))
